@@ -3,29 +3,27 @@ import path from "path";
 import { sum } from "./util";
 
 function parseInput1(input: string): string[][] {
-  let result: string[][] = [];
-
-  input.split("\n").forEach((line) => {
-    if (!line) return;
-    result.push([line.slice(0, line.length / 2), line.slice(line.length / 2)]);
-  });
-
-  return result;
+  return input
+    .split("\n")
+    .filter((line) => !!line)
+    .map((line) => [
+      line.slice(0, line.length / 2),
+      line.slice(line.length / 2),
+    ]);
 }
 
-const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".split(
-  ""
-);
+const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 // find the item letter that appears in both parts,
 // add its number to the score
 export function solve1(backpacks: string[][]): number {
   return sum(
-    backpacks.map(
-      ([front, back]) =>
-        alphabet.indexOf(front.split("").find((l) => back.includes(l)) ?? "") +
-        1
-    )
+    backpacks.map(([front, back]) => {
+      // find letter that appears in both parts
+      const letter = [...front].find((l) => back.includes(l));
+      if (!letter) return 0;
+      return alphabet.indexOf(letter) + 1;
+    })
   );
 }
 
@@ -42,12 +40,14 @@ function parseInput2(input: string): string[][] {
 
 export function solve2(backpacks: string[][]): number {
   return sum(
-    backpacks.map(
-      (backpack) =>
-        alphabet.findIndex((letter) =>
+    backpacks.map((backpack) => {
+      // find letter that appears in all parts
+      return (
+        [...alphabet].findIndex((letter) =>
           backpack.every((pocket) => pocket.includes(letter))
         ) + 1
-    )
+      );
+    })
   );
 }
 
