@@ -6,7 +6,8 @@
   "scripts": {
     "test": "vitest",
     "day-1": "ts-node day-1.ts",
-    "day-2": "ts-node day-2.ts"
+    "day-2": "ts-node day-2.ts",
+    "day-3": "ts-node day-3.ts"
   },
   "repository": {
     "type": "git",
