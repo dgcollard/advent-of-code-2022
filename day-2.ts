@@ -1,5 +1,4 @@
-import fs from "fs";
-import path from "path";
+import { runWithInputFile } from "./util";
 
 function parseInput(input: string): string[][] {
   let result: string[][] = [[]];
@@ -88,10 +87,4 @@ function main(input: string) {
   console.log(solve2(parsedInput));
 }
 
-if (!process.env.TEST) {
-  main(
-    fs.readFileSync(path.join(__dirname, "day-2.input.txt"), {
-      encoding: "utf-8",
-    })
-  );
-}
+runWithInputFile(main, "day-2");
