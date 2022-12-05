@@ -17,6 +17,14 @@ export function product(numbers: number[]): number {
   return numbers.reduce(multiply, 1);
 }
 
+export function reverse(str: string): string {
+  let newStr = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    newStr += str.charAt(i);
+  }
+  return newStr;
+}
+
 export function runWithInputFile(
   main: (input: string) => void,
   inputFile: string
