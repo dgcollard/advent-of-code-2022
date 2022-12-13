@@ -19,15 +19,44 @@ export function solve1(grid: string[][]): number {
 
 export function solve2(grid: string[][]): number {
   // positions of each S or a
-  const starts = [...find(grid, "S"), ...find(grid, "a")];
+  const allStarts = [...find(grid, "S"), ...find(grid, "a")];
   // position of E
   const [[ey, ex]] = find(grid, "E");
 
-  const shortestPaths = starts.map(([sy, sx]) =>
-    solve(grid, [sy, sx], [ey, ex])
-  );
+  const startsGrid: boolean[][] = [];
+  for (let y = 0; y < grid.length; y++) {
+    startsGrid[y] = [];
+    for (let x = 0; x < grid[y].length; x++) {
+      startsGrid[y][x] = false;
+    }
+  }
+  allStarts.forEach(([sy, sx]) => {
+    startsGrid[sy][sx] = true;
+  });
 
-  return Math.min(...shortestPaths);
+  // eliminate start places that are surrounded by other starts
+  // they cannot possibly have shorter paths to E
+  const edgeStarts = allStarts.filter(([sy, sx]) => {
+    let adj: [number, number][] = [];
+    if (sy > 0) {
+      adj.push([sy - 1, sx]);
+    }
+    if (sy < grid.length - 1) {
+      adj.push([sy + 1, sx]);
+    }
+    if (sx > 0) {
+      adj.push([sy, sx - 1]);
+    }
+    if (sx < grid.length - 1) {
+      adj.push([sy, sx + 1]);
+    }
+
+    return !adj.reduce((c, [sy, sx]) => c && startsGrid[sy][sx], true);
+  });
+
+  return Math.min(
+    ...edgeStarts.map(([sy, sx]) => solve(grid, [sy, sx], [ey, ex]))
+  );
 }
 
 function solve(
