@@ -1,4 +1,4 @@
-import { reverse, runWithInputFile } from "./util";
+import { reverse, runWithInputFile } from "../util";
 
 export type ParsedInput = {
   stacks: {
@@ -82,4 +82,4 @@ function main(input: string) {
   console.log(solve2(parsedInput));
 }
 
-runWithInputFile(main, "day-5");
+runWithInputFile(main, "year-2022/day-5");

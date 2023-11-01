@@ -1,4 +1,4 @@
-import { runWithInputFile } from "./util";
+import { runWithInputFile } from "../util";
 
 type Nested<T> = T | _Nested<T>;
 interface _Nested<T> extends Array<_Nested<T> | T> {}
@@ -64,4 +64,4 @@ function main(input: string) {
   console.log(solve2(parsedInput));
 }
 
-runWithInputFile(main, "day-13");
+runWithInputFile(main, "year-2022/day-13");

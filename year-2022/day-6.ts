@@ -1,4 +1,4 @@
-import { runWithInputFile } from "./util";
+import { runWithInputFile } from "../util";
 
 function parseInput(input: string): string {
   return input.trim();
@@ -40,4 +40,4 @@ function main(input: string) {
   console.log(solve2(parsedInput));
 }
 
-runWithInputFile(main, "day-6");
+runWithInputFile(main, "year-2022/day-6");

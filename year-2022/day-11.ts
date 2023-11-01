@@ -1,4 +1,4 @@
-import { product, runWithInputFile } from "./util";
+import { product, runWithInputFile } from "../util";
 
 type MonkeyState = {
   items: number[];
@@ -111,4 +111,4 @@ function main(input: string) {
   console.log(solve2(parsedInput2));
 }
 
-runWithInputFile(main, "day-11");
+runWithInputFile(main, "year-2022/day-11");

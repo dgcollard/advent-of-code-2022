@@ -1,4 +1,4 @@
-import { runWithInputFile, zip } from "./util";
+import { runWithInputFile, zip } from "../util";
 
 function parseInput(input: string): any {
   const split = (sep: string) => (str: string) => str.split(sep);
@@ -146,4 +146,4 @@ function main(input: string) {
   console.log(solve2(parsedInput));
 }
 
-runWithInputFile(main, "day-14");
+runWithInputFile(main, "year-2022/day-14");

@@ -1,4 +1,4 @@
-import { runWithInputFile } from "./util";
+import { runWithInputFile } from "../util";
 
 export type Input = [string, number][];
 
@@ -105,4 +105,4 @@ function main(input: string) {
   console.log(solve2(parsedInput));
 }
 
-runWithInputFile(main, "day-9");
+runWithInputFile(main, "year-2022/day-9");

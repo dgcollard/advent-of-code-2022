@@ -1,4 +1,4 @@
-import { runWithInputFile, sum } from "./util";
+import { runWithInputFile, sum } from "../util";
 
 function parseInput1(input: string): string[][] {
   return input
@@ -56,4 +56,4 @@ function main(input: string) {
   console.log(solve2(parsedInput2));
 }
 
-runWithInputFile(main, "day-3");
+runWithInputFile(main, "year-2022/day-3");

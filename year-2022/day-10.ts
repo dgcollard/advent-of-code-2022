@@ -1,4 +1,4 @@
-import { runWithInputFile } from "./util";
+import { runWithInputFile } from "../util";
 
 export type Instruction = ["noop"] | ["addx", number];
 export type Input = Instruction[];
@@ -81,4 +81,4 @@ function main(input: string) {
   console.log(solve2(parsedInput));
 }
 
-runWithInputFile(main, "day-10");
+runWithInputFile(main, "year-2022/day-10");

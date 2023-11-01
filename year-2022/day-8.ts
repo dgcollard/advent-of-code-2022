@@ -1,4 +1,4 @@
-import { product, runWithInputFile } from "./util";
+import { product, runWithInputFile } from "../util";
 
 function parseInput(input: string): number[][] {
   return input
@@ -77,4 +77,4 @@ function main(input: string) {
   console.log(solve2(parsedInput));
 }
 
-runWithInputFile(main, "day-8");
+runWithInputFile(main, "year-2022/day-8");

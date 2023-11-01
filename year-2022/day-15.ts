@@ -1,4 +1,4 @@
-import { runWithInputFile } from "./util";
+import { runWithInputFile } from "../util";
 
 type Input = [number, number, number, number][];
 
@@ -68,4 +68,4 @@ function main(input: string) {
 // Sensor at x=20, y=1: closest beacon is at x=15, y=3
 // `);
 
-runWithInputFile(main, "day-15");
+runWithInputFile(main, "year-2022/day-15");
