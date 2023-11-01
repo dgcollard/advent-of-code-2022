@@ -1,4 +1,4 @@
-import { runWithInputFile, sum } from "../util";
+import { runWithInputFile } from "../util";
 
 function parseInput(input: string): string[] {
   const result = input.split("");
