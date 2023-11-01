@@ -25,6 +25,12 @@ export function reverse(str: string): string {
   return newStr;
 }
 
+export function run(main: () => void): void {
+  if (process.env.TEST) return;
+
+  main();
+}
+
 export function runWithInputFile(
   main: (input: string) => void,
   inputFile: string
